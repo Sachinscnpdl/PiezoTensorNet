@@ -62,7 +62,8 @@ if next_input:
 if not df_selected_formulas.empty:
     st.write('Selected Formulas:')
     st.dataframe(df_selected_formulas)
-
+    
+df_piezo = df_selected_formulas
 # df_piezo = df_selected_formulas
 # 'Piezo Materials' == 'formula_pretty'
 
