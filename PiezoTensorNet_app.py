@@ -541,7 +541,7 @@ if crystal_rotations:
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
     
-    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360, value=0.0, step=0.1)
+    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360.0, value=0.0, step=0.1)
     block = st.sidebar.columns([1, 1,1])
     block[0].write('<p style="margin-bottom: -0.2em;">Show plot of Rotated tensor:</p>', unsafe_allow_html=True)
     block[1].write("Row element")
