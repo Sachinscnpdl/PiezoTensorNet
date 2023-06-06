@@ -483,7 +483,7 @@ tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 # st.write("Crystal Rotation :", tensor_prime)
 
 # Define the matrix size
-tensor_prime_visual = np.around(tensor_prime_visual, decimals=3)
+tensor_prime_visual = np.around(tensor_prime, decimals=3)
 tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
 # Create the LaTeX matrix string
 matrix = r"\begin{pmatrix}"
