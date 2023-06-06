@@ -546,8 +546,8 @@ if crystal_rotations:
     block[0].write('<p style="margin-bottom: -0.2em;">Show plot of Rotated tensor:</p>', unsafe_allow_html=True)
     block[1].write("Row element")
     block[2].write("Column Element")
-    i = block[1].text_input("", value="1")
-    j = block[2].text_input("", value="1")
+    i = block[1].text_input("", value=1)
+    j = block[2].text_input("", value=1)
   
     
 #     i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
