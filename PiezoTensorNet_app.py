@@ -482,3 +482,23 @@ tensor_prime = tensor_rotation(my_tensor, psi=30, theta=90, phi=150)
 tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 
 st.write("Crystal Rotation :", tensor_prime)
+
+# Define the matrix size
+
+# Create the LaTeX matrix string
+matrix = r"\begin{pmatrix}"
+
+# Append the values to the matrix string
+for i in range(rows):
+    for j in range(cols):
+        matrix += str(tensor_prime[i, j])
+        if j < cols - 1:
+            matrix += " & "
+        else:
+            matrix += r" \\"
+
+# Close the matrix string
+matrix += r"\end{pmatrix}"
+
+# Display LaTeX matrix using st.latex()
+st.latex(matrix)
