@@ -469,7 +469,7 @@ position = "right"  # Options: "left", "centered", "right"
 
 st.image(image, caption=caption)
 
-# st.image(image, caption="Image Caption", use_column_width=True)
+# st.image(image, caption="Image Caption", width=50, use_column_width=True)
 
 #####################################################################
 # In[19]:
@@ -543,6 +543,6 @@ if crystal_rotations:
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
     
-    crystal_plot, max_e, max_e11, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
     st.plotly_chart(crystal_plot)
 
