@@ -505,7 +505,7 @@ if crystal_rotations:
     tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
     # Create the LaTeX matrix string
     matrix = r"\begin{pmatrix}"
-
+    cols =6
     # Append the values to the matrix string
     for i in range(rows):
         for j in range(cols):
