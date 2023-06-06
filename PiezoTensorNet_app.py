@@ -514,14 +514,12 @@ if crystal_rotations:
     theta = cols[2].text_input("", value="90")
     phi = cols[3].text_input("", value="150")
 
-
     # Perform tensor rotation with crystal rotations
     tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
 
 #     tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 
     # st.write("Crystal Rotation :", tensor_prime)
-
     # Define the matrix size
     tensor_prime_visual = np.around(tensor_prime, decimals=3)
     tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
@@ -543,10 +541,18 @@ if crystal_rotations:
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
     
-    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=2*np.pi, value=0.0, step=0.1)
-    i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
-    j = st.sidebar.number_input("Enter matrix order j:", min_value=1, max_value=6, value=1, step=1)
+    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360, value=0.0, step=0.1)
+    block = st.sidebar.columns([1, 1,1])
+    block[0].write('<p style="margin-bottom: -0.2em;">Show plot of Rotated tensor:</p>', unsafe_allow_html=True)
+    block[1].write("Row element")
+    block[2].write("Column Element")
+    i = block[1].text_input("", value="1")
+    j = block[2].text_input("", value="1")
+  
     
-    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = phi,order=[i,j])
+#     i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
+#     j = st.sidebar.number_input("Enter matrix order j:", min_value=1, max_value=6, value=1, step=1)
+    
+    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = phi,order=[i-1,j-1])
     st.plotly_chart(crystal_plot)
 
