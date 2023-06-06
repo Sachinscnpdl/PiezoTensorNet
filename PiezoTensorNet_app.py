@@ -484,7 +484,7 @@ crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated te
 if crystal_rotations:
    # Create input fields in a compact and aligned layout
     cols = st.sidebar.columns([1, 1, 1, 1])
-    cols[0].write("Euler:<br><br>")
+    cols[0].markdown("**Euler:**")
     cols[1].write("psi")
     cols[2].write("theta")
     cols[3].write("phi")
