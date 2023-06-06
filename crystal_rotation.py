@@ -104,7 +104,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
         x=theta_vals_deg,
         y=psi_vals_deg,
         z=e_prime_11,
-        colorscale='Turbo',
+        colorscale='Jet',
         showscale=False,
         hovertemplate = 'Theta : %{x:.2f}'+\
                 '<br>Psi : %{y:.2f}'+\
@@ -124,7 +124,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
                 showgrid=False,
                 tickfont=dict(size=14, color='black'),  # Set tick label color to black
                 title_font=dict(size=16, color='red'),  # Set axis label color to black
-                showline=True,
+#                 showline=True,
                 linecolor='black',  # Set axis line color to black
                 tickangle=0,  # Rotate x-axis tick labels
                 nticks=5,  # Set the maximum number of ticks
@@ -135,7 +135,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
                 showgrid=False,
                 tickfont=dict(size=14, color='black'),  # Set tick label color to black
                 title_font=dict(size=16, color='red'),  # Set axis label color to black
-                showline=True,
+#                 showline=True,
                 linecolor='black',  # Set axis line color to black
                 tickangle=-5,  # Rotate x-axis tick labels
                 nticks=5,  # Set the maximum number of ticks
@@ -146,7 +146,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
                 showgrid=False,
                 tickfont=dict(size=14, color='black'),  # Set tick label color to black
                 title_font=dict(size=16, color='red'),  # Set axis label color to black
-                showline=True,
+#                 showline=True,
                 linecolor='black',  # Set axis line color to black
                 tickangle=-0,
                 ticks = "outside", tickcolor='white', ticklen=10,
