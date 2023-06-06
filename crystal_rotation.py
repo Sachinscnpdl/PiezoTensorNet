@@ -46,6 +46,8 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
     import numpy as np
     import plotly.graph_objects as go
     
+    eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
+    
     # Define the angles phi, theta, and psi
 #     phi_vals = 30
     theta_vals = np.linspace(0, np.pi, 40)
