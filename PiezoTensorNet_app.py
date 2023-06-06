@@ -415,9 +415,9 @@ for item in range(df_pca.shape[0]):
 # In[18]:
 # y_tensor
 my_tensor = np.array(y_tensor[0])
-my_tensor = np.around(my_tensor, decimals=3)
-my_tensor = np.where(my_tensor == 0.0, '0', my_tensor)
-# my_tensor = np.trim_zeros(my_tensor.flatten(), 'b').reshape(my_tensor.shape)
+my_tensor_visual = np.around(my_tensor, decimals=3)
+my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
+# my_tensor = np.trim_zeros(my_tensor_visual.flatten(), 'b').reshape(my_tensor_visual.shape)
 # my_df = pd.dataframe(y_tensor[0])
 ####################################################################
 """
@@ -430,14 +430,13 @@ my_tensor = np.where(my_tensor == 0.0, '0', my_tensor)
 rows = 3
 cols = 6
 
-
 # Create the LaTeX matrix string
 matrix = r"\begin{pmatrix}"
 
 # Append the values to the matrix string
 for i in range(rows):
     for j in range(cols):
-        matrix += str(my_tensor[i, j])
+        matrix += str(my_tensor_visual[i, j])
         if j < cols - 1:
             matrix += " & "
         else:
@@ -484,15 +483,15 @@ tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 # st.write("Crystal Rotation :", tensor_prime)
 
 # Define the matrix size
-tensor_prime = np.around(tensor_prime, decimals=3)
-tensor_prime = np.where(tensor_prime == 0.0, '0', tensor_prime)
+tensor_prime_visual = np.around(tensor_prime_visual, decimals=3)
+tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
 # Create the LaTeX matrix string
 matrix = r"\begin{pmatrix}"
 
 # Append the values to the matrix string
 for i in range(rows):
     for j in range(cols):
-        matrix += str(tensor_prime[i, j])
+        matrix += str(tensor_prime_visual[i, j])
         if j < cols - 1:
             matrix += " & "
         else:
