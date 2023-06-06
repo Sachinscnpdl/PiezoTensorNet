@@ -462,8 +462,14 @@ elif subcategories[0][0]=='orthomm2':
     image = "plots/orthomms.png"
 elif subcategories[0][0]=='hextetramm':
     image = "plots/hextetra.png"
-    
-st.image(image, caption="Image Caption", use_column_width=True)
+
+caption = "Piezoelectric Tensor Visualization"
+size = (300, 200)  # Custom size in pixels
+position = "right"  # Options: "left", "centered", "right"
+
+st.image(image, caption=caption, width=size[0], height=size[1], use_column_width=False, clamp=True, channels="RGB", output_format="auto", caption_position=position)
+
+# st.image(image, caption="Image Caption", use_column_width=True)
 
 #####################################################################
 # In[19]:
