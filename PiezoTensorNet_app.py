@@ -543,6 +543,10 @@ if crystal_rotations:
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
     
-    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=2*np.pi, value=0.0, step=0.1)
+    i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
+    j = st.sidebar.number_input("Enter matrix order j:", min_value=1, max_value=6, value=1, step=1)
+    
+    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = phi,order=[i,j])
     st.plotly_chart(crystal_plot)
 
