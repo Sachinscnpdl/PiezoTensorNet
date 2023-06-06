@@ -483,9 +483,9 @@ from crystal_rotation import *
 crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated tensor")
 if crystal_rotations:
     # Create input fields in the sidebar
-    psi = st.sidebar.text_input("Enter psi:", value="30")
-    theta = st.sidebar.text_input("Enter theta:", value="90")
-    phi = st.sidebar.text_input("Enter phi:", value="150")
+    psi = st.sidebar.text_input("Enter psi:", value="30", step=1)
+    theta = st.sidebar.text_input("Enter theta:", value="90", step=1)
+    phi = st.sidebar.text_input("Enter phi:", value="150", step=1)
     
     
     tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
