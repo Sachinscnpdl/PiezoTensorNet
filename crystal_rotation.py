@@ -1,6 +1,7 @@
 # Calculation placed in Supplementary Informations
 def tensor_rotation(eo, psi=30, theta=90, phi=150):
     import numpy as np
+    eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
 
     # Compute the elements of matrix A
     A = np.array([
