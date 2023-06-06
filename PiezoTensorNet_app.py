@@ -484,13 +484,13 @@ crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated te
 if crystal_rotations:
    # Create input fields in a compact and aligned layout
     cols = st.sidebar.columns([1, 1, 1, 1])
-    cols[0].write("Euler Angles:\n\n\n")
+    cols[0].write("Euler Angles:")
     cols[1].write("psi")
     cols[2].write("theta")
     cols[3].write("phi")
-    psi = cols[1].text_input("", value="30", key="psi_input")
-    theta = cols[2].text_input("", value="90", key="theta_input")
-    phi = cols[3].text_input("", value="150", key="phi_input")
+    psi = cols[1].text_input("", value="30")
+    theta = cols[2].text_input("", value="90")
+    phi = cols[3].text_input("", value="150")
 
 
     # Perform tensor rotation with crystal rotations
