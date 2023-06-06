@@ -448,6 +448,22 @@ matrix += r"\end{pmatrix}"
 
 # Display LaTeX matrix using st.latex()
 st.latex(matrix)
+#####################################################################
+
+# Piezo Tensor Representations
+if subcategories[0][0]=='cubic':
+    image = "plots/CAT_A.png"
+elif subcategories[0][0]=='tetra42m':
+    image = "plots/CAT_A.png"    
+elif subcategories[0][0]=='ortho222':
+    image = "plots/CAT_A.png"
+    
+elif subcategories[0][0]=='orthomm2':
+    image = "plots/orthomms.png"
+elif subcategories[0][0]=='hextetramm':
+    image = "plots/hextetra.png"
+    
+st.image(image, caption="Image Caption", use_column_width=True)
 
 #####################################################################
 # In[19]:
