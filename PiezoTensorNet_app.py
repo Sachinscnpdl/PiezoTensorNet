@@ -457,37 +457,6 @@ st.latex(matrix)
 
 ######################################################################################################
 
-# # This is a working codes
-# # matrixData = my_tensor
-# # system('python setup.py install')
-# import matlab.engine
-# import numpy as np
-
-# # Start the MATLAB Engine
-# eng = matlab.engine.start_matlab()
-
-# # Define the matrix in Python
-# matrixData = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-
-# # Convert the matrix to a MATLAB-compatible format
-# matlabMatrix = matlab.double(matrixData.tolist())
-
-# # Assign the MATLAB matrix to a variable in the MATLAB workspace
-# eng.workspace['matrixData'] = matlabMatrix
-
-# # Convert the matrix to a tensor in MATLAB
-# eng.eval('tensorData = tensor(matrixData);', nargout=0)
-
-# # Visualize the tensor using surf function in MATLAB
-# eng.eval('surf(tensorData.directionalMagnitude)', nargout=0)
-
-# # Quit the MATLAB Engine
-# # eng.quit()
-
-
-# local_path = "~/Sachin Research/Piezoelectric_Research/Piezoelectric_codes/Codes_May 1/"
-# with open("my_tensor.pkl", "wb") as f:
-#     pickle.dump(my_tensor, f)
 import subprocess
 
 # Define the path to the file
@@ -505,3 +474,9 @@ if st.button("Download NumPy Array as Tensor"):
     with open(tensor_path, "rb") as file:
         contents = file.read()
         st.download_button(label="Click here to download", data=contents, file_name="my_array.npy")
+        
+#####################################################################################################
+# Crystal Rotations
+from crystal_rotation import *
+tensor_rotation(my_tensor, psi=30, theta=90, phi=150)
+tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
