@@ -478,5 +478,7 @@ if st.button("Download NumPy Array as Tensor"):
 #####################################################################################################
 # Crystal Rotations
 from crystal_rotation import *
-tensor_rotation(my_tensor, psi=30, theta=90, phi=150)
+tensor_prime = tensor_rotation(my_tensor, psi=30, theta=90, phi=150)
 tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+
+st.write("Crystal Rotation :", tensor_prime)
