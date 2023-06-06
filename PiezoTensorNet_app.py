@@ -482,10 +482,9 @@ from crystal_rotation import *
 # Take an input from the user
 crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated tensor")
 if crystal_rotations:
-    # Create a container with flex layout
-    input_container = st.sidebar.beta_container()
-    with input_container:
-        col1, col2, col3 = st.beta_columns(3)
+        # Create input fields in the sidebar
+        st.sidebar.write("Enter values:")
+        col1, col2, col3 = st.sidebar.beta_columns(3)
         psi = col1.text_input("Psi", value="30")
         theta = col2.text_input("Theta", value="90")
         phi = col3.text_input("Phi", value="150")
