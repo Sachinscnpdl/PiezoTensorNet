@@ -1,7 +1,7 @@
 # Calculation placed in Supplementary Informations
 def tensor_rotation(eo, psi=30, theta=90, phi=150):
     import numpy as np
-    eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
+#     eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
 
     # Compute the elements of matrix A
     A = np.array([
@@ -46,7 +46,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
     import numpy as np
     import plotly.graph_objects as go
     
-    eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
+#     eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
     
     # Define the angles phi, theta, and psi
 #     phi_vals = 30
