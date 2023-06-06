@@ -467,7 +467,7 @@ caption = "Piezoelectric Tensor Visualization"
 size = (300, 200)  # Custom size in pixels
 position = "right"  # Options: "left", "centered", "right"
 
-st.image(image, caption=caption, width=size[0], height=size[1], use_column_width=False, clamp=True, channels="RGB", output_format="auto", caption_position=position)
+st.image(image, caption=caption)
 
 # st.image(image, caption="Image Caption", use_column_width=True)
 
@@ -518,7 +518,7 @@ if crystal_rotations:
     # Perform tensor rotation with crystal rotations
     tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
 
-    tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+#     tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 
     # st.write("Crystal Rotation :", tensor_prime)
 
@@ -542,3 +542,7 @@ if crystal_rotations:
 
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
+    
+    crystal_plot, max_e, max_e11, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+    st.plotly_chart(crystal_plot)
+
