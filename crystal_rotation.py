@@ -41,7 +41,7 @@ def tensor_rotation(eo, psi=30, theta=90, phi=150):
     
     
     ###########################################################################################################################################3
-    def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
+def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
     import numpy as np
     import plotly.graph_objects as go
     
