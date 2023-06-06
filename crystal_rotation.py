@@ -179,4 +179,6 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
     print(f"Theta: {max_theta:.2f}")
     print(f"Psi: {max_psi:.2f}")
     print(f"Phi: {phi_vals:.0f}")
+    
+    return fig, max_e11, max_theta, max_psi, phi_vals
 
