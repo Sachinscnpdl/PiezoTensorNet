@@ -480,10 +480,12 @@ if st.button("Download NumPy Array as Tensor"):
 from crystal_rotation import *
 
 #  Take a input from User
-# Create input fields in the sidebar
-psi = st.sidebar.text_input("Enter psi:", value="30")
-theta = st.sidebar.text_input("Enter theta:", value="90")
-phi = st.sidebar.text_input("Enter phi:", value="150")
+crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated tensor")
+if crystal_rotation:
+    # Create input fields in the sidebar
+    psi = st.sidebar.text_input("Enter psi:", value="30")
+    theta = st.sidebar.text_input("Enter theta:", value="90")
+    phi = st.sidebar.text_input("Enter phi:", value="150")
     
     
 tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
