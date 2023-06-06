@@ -481,35 +481,35 @@ from crystal_rotation import *
 
 #  Take a input from User
 crystal_rotations = st.sidebar.checkbox("Perform Crystal rotation for rotated tensor")
-if crystal_rotation:
+if crystal_rotations:
     # Create input fields in the sidebar
     psi = st.sidebar.text_input("Enter psi:", value="30")
     theta = st.sidebar.text_input("Enter theta:", value="90")
     phi = st.sidebar.text_input("Enter phi:", value="150")
     
     
-tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
-tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
+    tensor_prime = tensor_rotation(my_tensor, psi=float(psi), theta=float(theta), phi=float(phi))
+    tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 
-# st.write("Crystal Rotation :", tensor_prime)
+    # st.write("Crystal Rotation :", tensor_prime)
 
-# Define the matrix size
-tensor_prime_visual = np.around(tensor_prime, decimals=3)
-tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
-# Create the LaTeX matrix string
-matrix = r"\begin{pmatrix}"
+    # Define the matrix size
+    tensor_prime_visual = np.around(tensor_prime, decimals=3)
+    tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
+    # Create the LaTeX matrix string
+    matrix = r"\begin{pmatrix}"
 
-# Append the values to the matrix string
-for i in range(rows):
-    for j in range(cols):
-        matrix += str(tensor_prime_visual[i, j])
-        if j < cols - 1:
-            matrix += " & "
-        else:
-            matrix += r" \\"
+    # Append the values to the matrix string
+    for i in range(rows):
+        for j in range(cols):
+            matrix += str(tensor_prime_visual[i, j])
+            if j < cols - 1:
+                matrix += " & "
+            else:
+                matrix += r" \\"
 
-# Close the matrix string
-matrix += r"\end{pmatrix}"
+    # Close the matrix string
+    matrix += r"\end{pmatrix}"
 
-# Display LaTeX matrix using st.latex()
-st.latex(matrix)
+    # Display LaTeX matrix using st.latex()
+    st.latex(matrix)
