@@ -541,7 +541,7 @@ if crystal_rotations:
     # Display LaTeX matrix using st.latex()
     st.latex(matrix)
     
-    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360.0, value=0.0, step=0.1)
+    phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360.0, value=0.0, step=10)
 
     block = st.sidebar.columns([1, 1, 1])
     block[0].write('<p style="margin-bottom: -0.2em;">Show plot of Rotated tensor:</p>', unsafe_allow_html=True)
@@ -560,6 +560,6 @@ if crystal_rotations:
 #     i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
 #     j = st.sidebar.number_input("Enter matrix order j:", min_value=1, max_value=6, value=1, step=1)
     
-    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi_vals = phi,order=[i-1,j-1])
+    crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi = phi, order=[i-1,j-1])
     st.plotly_chart(crystal_plot)
 
