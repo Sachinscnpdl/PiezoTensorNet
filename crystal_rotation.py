@@ -5,15 +5,9 @@ def tensor_rotation(eo, psi=30, theta=90, phi=150):
 
     # Compute the elements of matrix A
     A = np.array([
-        [np.cos(psi) * np.cos(theta) * np.cos(phi) - np.sin(psi) * np.sin(phi),
-         -np.cos(psi) * np.cos(theta) * np.sin(phi) - np.sin(psi) * np.cos(phi),
-         np.cos(theta) * np.sin(psi)],
-        [np.sin(psi) * np.cos(theta) * np.cos(phi) + np.cos(psi) * np.sin(phi),
-         -np.sin(psi) * np.cos(theta) * np.sin(phi) + np.cos(psi) * np.cos(phi),
-         np.sin(theta) * np.sin(psi)],
-        [-np.sin(theta) * np.cos(phi),
-         np.sin(theta) * np.sin(phi),
-         np.cos(theta)]
+    [np.cos(phi) * np.cos(psi) - np.cos(theta) * np.sin(phi) * np.sin(psi), np.cos(phi) * np.sin(psi) + np.cos(theta) * np.cos(psi) * np.sin(phi), np.sin(theta) * np.sin(phi)],
+    [-np.cos(theta) * np.cos(psi) * np.sin(phi) - np.cos(phi) * np.sin(psi), np.cos(theta) * np.cos(phi) * np.cos(psi) - np.sin(phi) * np.sin(psi), np.cos(theta) * np.sin(psi)],
+    [np.sin(theta) * np.sin(psi), -np.cos(phi) * np.sin(theta), np.cos(theta)]
     ])
 
     # Compute the elements of matrix N
@@ -61,17 +55,11 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
         for j, theta in enumerate(theta_vals):
             # Compute the elements of matrix A
             A = np.array([
-                [np.cos(psi) * np.cos(theta) * np.cos(phi_vals) - np.sin(psi) * np.sin(phi_vals),
-                 -np.cos(psi) * np.cos(theta) * np.sin(phi_vals) - np.sin(psi) * np.cos(phi_vals),
-                 np.cos(theta) * np.sin(psi)],
-                [np.sin(psi) * np.cos(theta) * np.cos(phi_vals) + np.cos(psi) * np.sin(phi_vals),
-                 -np.sin(psi) * np.cos(theta) * np.sin(phi_vals) + np.cos(psi) * np.cos(phi_vals),
-                 np.sin(theta) * np.sin(psi)],
-                [-np.sin(theta) * np.cos(phi_vals),
-                 np.sin(theta) * np.sin(phi_vals),
-                 np.cos(theta)]
+            [np.cos(phi) * np.cos(psi) - np.cos(theta) * np.sin(phi) * np.sin(psi), np.cos(phi) * np.sin(psi) + np.cos(theta) * np.cos(psi) * np.sin(phi), np.sin(theta) * np.sin(phi)],
+            [-np.cos(theta) * np.cos(psi) * np.sin(phi) - np.cos(phi) * np.sin(psi), np.cos(theta) * np.cos(phi) * np.cos(psi) - np.sin(phi) * np.sin(psi), np.cos(theta) * np.sin(psi)],
+            [np.sin(theta) * np.sin(psi), -np.cos(phi) * np.sin(theta), np.cos(theta)]
             ])
-
+            
             # Compute the elements of matrix N
             N = np.array([
                 [A[0, 0]**2, A[1, 0]**2, A[2, 0]**2, 2*A[1, 0]*A[2, 0], 2*A[2, 0]*A[0, 0], 2*A[0, 0]*A[1, 0]],
