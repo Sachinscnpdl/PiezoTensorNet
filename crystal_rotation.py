@@ -36,7 +36,7 @@ def tensor_rotation(eo, psi=30, theta=90, phi=150):
     
     
     ###########################################################################################################################################3
-def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
+def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
     import numpy as np
     import plotly.graph_objects as go
     
@@ -166,7 +166,7 @@ def tensor_rotation_plot(eo, phi_vals = 30,order=[0,0]):
     print(f"Maximum Value: {max_e11:.2f}")
     print(f"Theta: {max_theta:.2f}")
     print(f"Psi: {max_psi:.2f}")
-    print(f"Phi: {phi_vals:.0f}")
+    print(f"Phi: {phi:.0f}")
     
-    return fig, max_e11, max_theta, max_psi, phi_vals
+    return fig, max_e11, max_theta, max_psi, phi
 
