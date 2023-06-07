@@ -467,7 +467,7 @@ caption = "Piezoelectric Tensor Visualization"
 size = (300, 200)  # Custom size in pixels
 position = "right"  # Options: "left", "centered", "right"
 
-st.image(image,width=10, caption=caption)
+st.image(image,width=100, caption=caption)
 
 # st.image(image, caption="Image Caption", width=10, use_column_width=True)
 
