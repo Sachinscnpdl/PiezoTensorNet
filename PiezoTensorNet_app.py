@@ -69,7 +69,7 @@ cat, subcategories, y_tensor = prediction_model(df_piezo, cat = 'B', point='')
 
 """
 
-"""
+
 st.write("Crystal Structure is :", subcategories[0][0])
 #####################################################################
 # In[15]:
