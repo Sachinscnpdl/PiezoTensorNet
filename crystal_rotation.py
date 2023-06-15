@@ -263,9 +263,10 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     for i, order in enumerate(orders):
         ax.plot(np.degrees(phi_vals), np.array(max_e11_vals[i]).flatten(), label=f'Order {order}')
 
-    ax.set_title("Maximum e'_" + str(order[0] + 1) + str(order[1] + 1) + " values as a function of phi")
-    ax.set_xlabel('Phi (degrees)')
-    ax.set_ylabel("e'_" + str(order[0] + 1) + str(order[1] + 1))
+    ax.set_title("Maximum e'_" + str(order[0] + 1) + str(order[1] + 1) + " values as a function of phi", fontsize=20, fontweight='bold')
+    ax.set_xlabel('Phi (degrees)', fontsize=16, fontweight='bold')
+    ax.set_ylabel("e'_" + str(order[0] + 1) + str(order[1] + 1), fontsize=16, fontweight='bold')
+    ax.tick_params(axis='both', which='major', labelsize=12, width=2, length=6)
     ax.legend()
 
     plt.show()
