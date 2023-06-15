@@ -311,3 +311,79 @@ def prediction_model(df_piezo, cat = 'B', point=''):
        
         y_tensor.append(y_value)
     return category, subcategories, y_tensor
+
+#####################################################################################################################################
+########################################################################################################################################
+
+def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
+    # Define the angles theta and psi
+    theta_vals = np.linspace(0, np.pi, 50)
+    psi_vals = np.linspace(0, 2 * np.pi, 50)
+
+    # Initialize arrays to store the maximum values
+    max_e11_vals = []
+    max_theta_vals = []
+    max_psi_vals = []
+
+    # Iterate over each phi value
+    for phi in phi_vals:
+        # Initialize array to store the e'11 matrix elements for each combination of psi, theta, and phi
+        e_prime_11 = np.zeros((len(psi_vals), len(theta_vals)))
+
+        # Calculate the e'11 matrix elements for each combination of psi, theta, and phi
+        for i, psi in enumerate(psi_vals):
+            for j, theta in enumerate(theta_vals):
+                # Compute the elements of matrix A
+                A = np.array([
+                    [np.cos(phi) * np.cos(psi) - np.cos(theta) * np.sin(phi) * np.sin(psi),
+                     np.cos(phi) * np.sin(psi) + np.cos(theta) * np.cos(psi) * np.sin(phi),
+                     np.sin(theta) * np.sin(phi)],
+                    [-np.cos(theta) * np.cos(psi) * np.sin(phi) - np.cos(phi) * np.sin(psi),
+                     np.cos(theta) * np.cos(phi) * np.cos(psi) - np.sin(phi) * np.sin(psi),
+                     np.cos(theta) * np.sin(psi)],
+                    [np.sin(theta) * np.sin(psi), -np.cos(phi) * np.sin(theta), np.cos(theta)]
+                ])
+
+                # Compute the elements of matrix N
+                N = np.array([
+                    [A[0, 0]**2, A[1, 0]**2, A[2, 0]**2, 2 * A[1, 0] * A[2, 0], 2 * A[2, 0] * A[0, 0], 2 * A[0, 0] * A[1, 0]],
+                    [A[0, 1]**2, A[1, 1]**2, A[2, 1]**2, 2 * A[1, 1] * A[2, 1], 2 * A[2, 1] * A[0, 1], 2 * A[0, 1] * A[1, 1]],
+                    [A[0, 2]**2, A[1, 2]**2, A[2, 2]**2, 2 * A[1, 2] * A[2, 2], 2 * A[2, 2] * A[0, 2], 2 * A[0, 2] * A[1, 2]],
+                    [A[0, 1] * A[0, 2], A[1, 1] * A[1, 2], A[2, 1] * A[2, 2], A[1, 1] * A[2, 2] + A[2, 1] * A[1, 2], A[0, 1] * A[2, 2] + A[2, 1] * A[0, 2], A[1, 1] * A[0, 2] + A[0, 1] * A[1, 2]],
+                    [A[0, 2] * A[0, 0], A[1, 2] * A[1, 0], A[2, 2] * A[2, 0], A[1, 2] * A[2, 0] + A[2, 2] * A[1, 0], A[2, 2] * A[0, 0] + A[0, 2] * A[2, 0], A[0, 2] * A[1, 0] + A[0, 0] * A[1, 2]],
+                    [A[0, 0] * A[0, 1], A[1, 0] * A[1, 1], A[2, 0] * A[2, 1], A[1, 0] * A[2, 1] + A[2, 0] * A[1, 1], A[2, 0] * A[0, 1] + A[0, 0] * A[2, 1], A[0, 0] * A[1, 1] + A[1, 0] * A[0, 1]]
+                ])
+
+                # Compute the elements of the e' matrix
+                e_prime = np.zeros((3, 6))
+                for l in range(3):
+                    for m in range(6):
+                        for n in range(3):
+                            for o in range(6):
+                                e_prime[l, m] += A[l, n] * eo[n, o] * N[o, n]
+
+                # Store the e'11 matrix element at the corresponding indices
+                e_prime_11[i, j] = e_prime[order[0], order[1]]
+
+        # Find the maximum point and its value for each order
+        max_index = np.unravel_index(np.argmax(e_prime_11), e_prime_11.shape)
+        max_theta = np.degrees(theta_vals[max_index[1]])
+        max_psi = np.degrees(psi_vals[max_index[0]])
+        max_e11 = e_prime_11[max_index]
+
+        # Append the maximum values to the respective arrays
+        max_e11_vals.append(max_e11)
+        max_theta_vals.append(max_theta)
+        max_psi_vals.append(max_psi)
+
+    # Plot the maximum values for each order as a function of phi
+    orders = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
+              [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5]]
+
+
+    fig = go.Figure()
+    for i, order in enumerate(orders):
+        fig.add_trace(go.Scatter(x=np.degrees(phi_vals), y=np.array(max_e11_vals[i]).flatten(), mode='lines', name=f'Order {order}'))
+
+    fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11')
+    fig.show()
