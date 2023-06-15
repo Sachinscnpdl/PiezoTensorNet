@@ -173,7 +173,8 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 
 #####################################################################################################################################
 ########################################################################################################################################
-
+import numpy as np
+import matplotlib.pyplot as plt
 def tensor_rotation_optimization(eo, order=[0, 0]):
     import numpy as np
     import plotly.graph_objects as go
@@ -248,45 +249,25 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     orders = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
               [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5]]
 
-    fig = go.Figure()
-    for i, order in enumerate(orders):
-        fig.add_trace(go.Scatter(x=np.degrees(phi_vals), y=np.array(max_e11_vals[i]).flatten(), mode='lines', name=f'Order {order}'))
+#     fig = go.Figure()
+#     for i, order in enumerate(orders):
+#         fig.add_trace(go.Scatter(x=np.degrees(phi_vals), y=np.array(max_e11_vals[i]).flatten(), mode='lines', name=f'Order {order}'))
 
 #     fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11',
 #                       xaxis=dict(range=[0, 360]))
     
     
-    # Update the layout
-    fig.update_layout(
-        title="Maximum e\'_"+ str(order[0]+1)+str(order[1]+1)+ " values as a function of phi",
-        xaxis_title='Phi (degrees)',
-        yaxis_title="e'_" + str(order[0]+1)+str(order[1]+1),
-        xaxis=dict(
-            range=[0, 360],
-            showticklines=True,
-            tickfont=dict(
-                size=18,  # Adjust the tick label font size
-                
-            ),
-            title=dict(
-                font=dict(
-                    size=20,  # Adjust the x-axis label font size
-                    color='red' , # Adjust the x-axis label font color
-                   
-                )
-            )
-        ),
-        yaxis=dict(
-            showticklines=True,
-            title=dict(
-                font=dict(
-                    size=20,  # Adjust the y-axis label font size
-                    color='red' , # Adjust the y-axis label font color
-                    
-                )
-            )
-        )
-    )
-    fig.show()
+
+    fig, ax = plt.subplots()
+
+    for i, order in enumerate(orders):
+        ax.plot(np.degrees(phi_vals), np.array(max_e11_vals[i]).flatten(), label=f'Order {order}')
+
+    ax.set_title("Maximum e'_" + str(order[0] + 1) + str(order[1] + 1) + " values as a function of phi")
+    ax.set_xlabel('Phi (degrees)')
+    ax.set_ylabel("e'_" + str(order[0] + 1) + str(order[1] + 1))
+    ax.legend()
+
+    plt.show()
 
     return fig
