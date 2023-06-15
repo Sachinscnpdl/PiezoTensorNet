@@ -35,6 +35,7 @@ stc = StrToComposition()
 
 # Add the function.py file
 from functions import *
+from prediction_ML import *
 
 # Set Streamlit app title
 st.title('Piezoelectric Material Selection')
