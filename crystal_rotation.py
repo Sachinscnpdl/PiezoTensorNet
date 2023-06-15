@@ -263,6 +263,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
         yaxis_title="e'_" + str(order[0]+1)+str(order[1]+1),
         xaxis=dict(
             range=[0, 360],
+            showticklines=True,
             tickfont=dict(
                 size=18,  # Adjust the tick label font size
                 
@@ -276,6 +277,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
             )
         ),
         yaxis=dict(
+            showticklines=True,
             title=dict(
                 font=dict(
                     size=20,  # Adjust the y-axis label font size
