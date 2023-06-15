@@ -177,7 +177,6 @@ if crystal_rotations:
 
     # Display LaTeX matrix using st.latex()
     st.latex(latex_tensor_visual(tensor_prime))
-    st.latex(matrix)
     
     phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360.0, value=0.0, step=10.0)
 
