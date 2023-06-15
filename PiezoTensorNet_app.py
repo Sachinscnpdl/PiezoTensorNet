@@ -36,36 +36,33 @@ stc = StrToComposition()
 # Add the function.py file
 from functions import *
 from prediction_ML import *
+import streamlit as st
+import pandas as pd
 
-# Set Streamlit app title
-st.title('Piezoelectric Material Selection')
-
-# Add an option to manually input a formula
-next_input = st.checkbox('Add next Piezo-Material')
-
-# Create a DataFrame to store the selected formulas
-data = {'S.N': [], 'formula_pretty': []}
-df_selected_formulas = pd.DataFrame(data)
+# Create two tabs in the sidebar
+tab_options = ["New piezoelectric design", "Rapid Piezo-performance design"]
+selected_tab = st.sidebar.radio("Select Tab", tab_options)
 
 # Add a dropdown to select a pre-defined formula
 predefined_formulas = ['Ba0.85Ca0.15Ti0.92Zr0.07Hf0.01O3', 'Ba0.84Ca0.15Sr0.01Ti0.90Zr0.10O3', 'BaTiO3']
-# selected_predefined_formula = st.selectbox('Select a pre-defined formula', predefined_formulas)
-selected_predefined_formula = st.sidebar.selectbox('Select a pre-defined formula', predefined_formulas)
-if selected_predefined_formula:
-    df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [selected_predefined_formula]})], ignore_index=True)
+selected_predefined_formula = st.selectbox('Select a pre-defined formula', predefined_formulas)
 
 # If manual input is selected, display an input box for the custom formula
-if next_input:
+if selected_tab == "New piezoelectric design":
     custom_formula = st.text_input('Enter the custom formula')
-    if custom_formula:
-        df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [custom_formula]})], ignore_index=True)
 
 # Display the selected formulas
-if not df_selected_formulas.empty:
+if selected_tab == "New piezoelectric design" and selected_predefined_formula:
+    df_selected_formulas = pd.DataFrame({'S.N': [1], 'formula_pretty': [selected_predefined_formula]})
     st.write('Selected Formulas:')
     st.dataframe(df_selected_formulas)
-    
+elif selected_tab == "Rapid Piezo-performance design" and custom_formula:
+    df_selected_formulas = pd.DataFrame({'S.N': [1], 'formula_pretty': [custom_formula]})
+    st.write('Selected Formulas:')
+    st.dataframe(df_selected_formulas)
+
 df_piezo = df_selected_formulas
+
 # df_piezo = df_selected_formulas
 # 'Piezo Materials' == 'formula_pretty'
 
