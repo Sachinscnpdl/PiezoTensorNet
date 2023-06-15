@@ -258,26 +258,29 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     
     # Update the layout
     fig.update_layout(
-        title="Maximum e\'"+ str(order[0])+str(order[1])+ "values as a function of phi",
+        title="Maximum e\'_"+ str(order[0]+1)+str(order[1]+1)+ " values as a function of phi",
         xaxis_title='Phi (degrees)',
-        yaxis_title="e' " + str(order[0])+str(order[1]),
+        yaxis_title="e'_" + str(order[0]+1)+str(order[1]+1),
         xaxis=dict(
             range=[0, 360],
             tickfont=dict(
-                size=14,  # Adjust the tick label font size
+                size=18,  # Adjust the tick label font size
+                weight='bold',
             ),
             title=dict(
                 font=dict(
-                    size=16,  # Adjust the x-axis label font size
-                    color='red'  # Adjust the x-axis label font color
+                    size=20,  # Adjust the x-axis label font size
+                    color='red' , # Adjust the x-axis label font color
+                    weight='bold',
                 )
             )
         ),
         yaxis=dict(
             title=dict(
                 font=dict(
-                    size=16,  # Adjust the y-axis label font size
-                    color='red'  # Adjust the y-axis label font color
+                    size=20,  # Adjust the y-axis label font size
+                    color='red' , # Adjust the y-axis label font color
+                    weight='bold',
                 )
             )
         )
