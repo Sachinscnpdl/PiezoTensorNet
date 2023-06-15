@@ -104,24 +104,24 @@ my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
 
 """
 
-# Define the matrix size
-rows = 3
-cols = 6
+# # Define the matrix size
+# rows = 3
+# cols = 6
 
-# Create the LaTeX matrix string
-matrix = r"\begin{pmatrix}"
+# # Create the LaTeX matrix string
+# matrix = r"\begin{pmatrix}"
 
-# Append the values to the matrix string
-for i in range(rows):
-    for j in range(cols):
-        matrix += str(my_tensor_visual[i, j])
-        if j < cols - 1:
-            matrix += " & "
-        else:
-            matrix += r" \\"
+# # Append the values to the matrix string
+# for i in range(rows):
+#     for j in range(cols):
+#         matrix += str(my_tensor_visual[i, j])
+#         if j < cols - 1:
+#             matrix += " & "
+#         else:
+#             matrix += r" \\"
 
-# Close the matrix string
-matrix += r"\end{pmatrix}"
+# # Close the matrix string
+# matrix += r"\end{pmatrix}"
 
 # Display LaTeX matrix using st.latex()
 st.latex(matrix)
