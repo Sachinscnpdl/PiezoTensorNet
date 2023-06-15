@@ -93,8 +93,8 @@ st.write("Crystal Structure is :", subcategories[0][0])
 print("Tensor Predictionsin Progress")
 
 my_tensor = np.array(y_tensor[0])
-my_tensor_visual = np.around(my_tensor, decimals=3)
-my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
+# my_tensor_visual = np.around(my_tensor, decimals=3)
+# my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
 # my_tensor = np.trim_zeros(my_tensor_visual.flatten(), 'b').reshape(my_tensor_visual.shape)
 # my_df = pd.dataframe(y_tensor[0])
 ####################################################################
@@ -123,8 +123,10 @@ my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
 # # Close the matrix string
 # matrix += r"\end{pmatrix}"
 
+# latex_tanser_visual(my_tensor)
+
 # Display LaTeX matrix using st.latex()
-st.latex(matrix)
+st.latex(latex_tanser_visual(my_tensor))
 #####################################################################
 
 # Piezo Tensor Representations
