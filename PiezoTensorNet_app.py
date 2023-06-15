@@ -30,8 +30,8 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-ef= ElementFraction()
-stc = StrToComposition()
+# ef= ElementFraction()
+# stc = StrToComposition()
 
 # Add the function.py file
 from functions import *
