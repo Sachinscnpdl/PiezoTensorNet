@@ -228,3 +228,6 @@ if crystal_rotations:
     
     crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi = phi, order=[i-1,j-1])
     st.plotly_chart(crystal_plot)
+    
+    rot_optimization = tensor_rotation_optimization(my_tensor, phi = phi, order=[i-1,j-1])
+    st.plotly_chart(rot_optimization)
