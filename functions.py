@@ -872,7 +872,11 @@ def r2_plot(model,input_datasets,target_datasets,name,model_name,plot_path="plot
 #####################################################################################################################
 # Latex matrix
 # Define the matrix size
-def latex_36(my_tensor):
+def latex_tensor_visual(my_tensor):
+    
+    my_tensor_visual = np.around(my_tensor, decimals=3)
+    my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
+
     rows = 3
     cols = 6
 
@@ -891,4 +895,4 @@ def latex_36(my_tensor):
     # Close the matrix string
     matrix += r"\end{pmatrix}"  
     return matrix
-
+#########################################################################################################################
