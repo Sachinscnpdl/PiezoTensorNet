@@ -265,13 +265,13 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
             range=[0, 360],
             tickfont=dict(
                 size=18,  # Adjust the tick label font size
-                weight='bold',
+                
             ),
             title=dict(
                 font=dict(
                     size=20,  # Adjust the x-axis label font size
                     color='red' , # Adjust the x-axis label font color
-                    weight='bold',
+                   
                 )
             )
         ),
@@ -280,7 +280,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
                 font=dict(
                     size=20,  # Adjust the y-axis label font size
                     color='red' , # Adjust the y-axis label font color
-                    weight='bold',
+                    
                 )
             )
         )
