@@ -174,13 +174,20 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 #####################################################################################################################################
 ########################################################################################################################################
 
-def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
+def tensor_rotation_optimization(eo, order=[0, 0]):
     # Define the angles theta and psi
+    
+    phi_vals = np.linspace(0, 2 * np.pi, 50)  # Vary phi from 0 to 2*pi
+    
     theta_vals = np.linspace(0, np.pi, 50)
     psi_vals = np.linspace(0, 2 * np.pi, 50)
+    
+    orders = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
+              [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5]]
+
 
     # Initialize arrays to store the maximum values
-    max_e11_vals = []
+    max_e11_vals = [[] for _ in range(len(orders))]
     max_theta_vals = []
     max_psi_vals = []
 
@@ -231,7 +238,7 @@ def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
         max_e11 = e_prime_11[max_index]
 
         # Append the maximum values to the respective arrays
-        max_e11_vals.append(max_e11)
+        max_e11_vals[order[0] * 6 + order[1]].append(max_e11)
         max_theta_vals.append(max_theta)
         max_psi_vals.append(max_psi)
 
@@ -239,11 +246,12 @@ def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
     orders = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
               [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5]]
 
-
     fig = go.Figure()
     for i, order in enumerate(orders):
         fig.add_trace(go.Scatter(x=np.degrees(phi_vals), y=np.array(max_e11_vals[i]).flatten(), mode='lines', name=f'Order {order}'))
 
-    fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11')
+    fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11',
+                      xaxis=dict(range=[0, 360]))
     fig.show()
+
     return fig
