@@ -67,7 +67,7 @@ def prediction_model(df_piezo, cat = 'B', point=''):
         df_piezo = featurizer.featurize_dataframe(df_piezo, col_id='composition')
         #y = bg_data_featurized['gap expt']
 
-        %run functions.ipynb
+#         %run functions.ipynb
         df, df_input_target = properties_calculation(df_piezo)
 
         magpie_list = ['MagpieData minimum Number',
