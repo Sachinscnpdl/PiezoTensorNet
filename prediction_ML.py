@@ -1,3 +1,6 @@
+from functions import *
+
+
 def prediction_model(df_piezo, cat = 'B', point=''):   
 ##############################################
     import multiprocessing
