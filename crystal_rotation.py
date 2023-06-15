@@ -175,6 +175,8 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 ########################################################################################################################################
 
 def tensor_rotation_optimization(eo, order=[0, 0]):
+    import numpy as np
+    import plotly.graph_objects as go
     # Define the angles theta and psi
     
     phi_vals = np.linspace(0, 2 * np.pi, 50)  # Vary phi from 0 to 2*pi
