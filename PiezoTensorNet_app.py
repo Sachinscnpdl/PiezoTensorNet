@@ -126,7 +126,7 @@ my_tensor = np.array(y_tensor[0])
 # latex_tanser_visual(my_tensor)
 
 # Display LaTeX matrix using st.latex()
-st.latex(latex_tanser_visual(my_tensor))
+st.latex(latex_tensor_visual(my_tensor))
 #####################################################################
 
 # Piezo Tensor Representations
