@@ -12,16 +12,16 @@ import streamlit as st
 import pymatgen
 import matminer
 
-#Import Libraries
-from pymatgen.core.composition import Composition, Element
-from pymatgen.core.structure import SiteCollection
-from matminer.featurizers.composition.alloy import Miedema, WenAlloys,YangSolidSolution
-from matminer.featurizers.composition import ElementFraction
-from matminer.featurizers.conversions import StrToComposition
-from matminer.utils.data import MixingEnthalpy, DemlData
-from matminer.utils import data_files #for importing "Miedema.csv" present inside package of Matminer library
-from matplotlib.ticker import MultipleLocator # for minor tick lines
-import seaborn as sns
+# #Import Libraries
+# from pymatgen.core.composition import Composition, Element
+# from pymatgen.core.structure import SiteCollection
+# from matminer.featurizers.composition.alloy import Miedema, WenAlloys,YangSolidSolution
+# from matminer.featurizers.composition import ElementFraction
+# from matminer.featurizers.conversions import StrToComposition
+# from matminer.utils.data import MixingEnthalpy, DemlData
+# from matminer.utils import data_files #for importing "Miedema.csv" present inside package of Matminer library
+# from matplotlib.ticker import MultipleLocator # for minor tick lines
+# import seaborn as sns
 
 import tensorflow as tf
 
@@ -93,37 +93,13 @@ st.write("Crystal Structure is :", subcategories[0][0])
 print("Tensor Predictionsin Progress")
 
 my_tensor = np.array(y_tensor[0])
-# my_tensor_visual = np.around(my_tensor, decimals=3)
-# my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
-# my_tensor = np.trim_zeros(my_tensor_visual.flatten(), 'b').reshape(my_tensor_visual.shape)
-# my_df = pd.dataframe(y_tensor[0])
+
 ####################################################################
 """
 ## The Piezo Tensor is
 
 
 """
-
-# # Define the matrix size
-# rows = 3
-# cols = 6
-
-# # Create the LaTeX matrix string
-# matrix = r"\begin{pmatrix}"
-
-# # Append the values to the matrix string
-# for i in range(rows):
-#     for j in range(cols):
-#         matrix += str(my_tensor_visual[i, j])
-#         if j < cols - 1:
-#             matrix += " & "
-#         else:
-#             matrix += r" \\"
-
-# # Close the matrix string
-# matrix += r"\end{pmatrix}"
-
-# latex_tanser_visual(my_tensor)
 
 # Display LaTeX matrix using st.latex()
 st.latex(latex_tensor_visual(my_tensor))
@@ -198,26 +174,9 @@ if crystal_rotations:
 
 #     tensor_rotation_plot(my_tensor, phi_vals = 30,order=[1,1])
 
-    # st.write("Crystal Rotation :", tensor_prime)
-    # Define the matrix size
-    tensor_prime_visual = np.around(tensor_prime, decimals=3)
-    tensor_prime_visual = np.where(tensor_prime_visual == 0.0, '0', tensor_prime_visual)
-    # Create the LaTeX matrix string
-    matrix = r"\begin{pmatrix}"
-    cols =6
-    # Append the values to the matrix string
-    for i in range(rows):
-        for j in range(cols):
-            matrix += str(tensor_prime_visual[i, j])
-            if j < cols - 1:
-                matrix += " & "
-            else:
-                matrix += r" \\"
-
-    # Close the matrix string
-    matrix += r"\end{pmatrix}"
 
     # Display LaTeX matrix using st.latex()
+    st.latex(latex_tensor_visual(tensor_prime))
     st.latex(matrix)
     
     phi = st.sidebar.slider("Enter angle phi:", min_value=0.0, max_value=360.0, value=0.0, step=10.0)
@@ -233,11 +192,6 @@ if crystal_rotations:
     i = int(i)
     j = int(j)
 
-
-  
-    
-#     i = st.sidebar.number_input("Enter matrix order i:", min_value=1, max_value=3, value=1, step=1)
-#     j = st.sidebar.number_input("Enter matrix order j:", min_value=1, max_value=6, value=1, step=1)
     
     crystal_plot, max_e, max_theta, max_psi, phi_vals = tensor_rotation_plot(my_tensor, phi = phi, order=[i-1,j-1])
     st.plotly_chart(crystal_plot)
