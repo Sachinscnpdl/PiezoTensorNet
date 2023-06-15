@@ -461,7 +461,7 @@ elif subcategories[0][0]=='ortho222':
     image = "plots/CAT_A.png"
     
 elif subcategories[0][0]=='orthomm2':
-    image = "plots/orthomms.png"
+    image = "plots/orthomm2.png"
 elif subcategories[0][0]=='hextetramm':
     image = "plots/hextetra.png"
 
