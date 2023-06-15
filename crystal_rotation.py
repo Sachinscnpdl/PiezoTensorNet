@@ -252,8 +252,36 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     for i, order in enumerate(orders):
         fig.add_trace(go.Scatter(x=np.degrees(phi_vals), y=np.array(max_e11_vals[i]).flatten(), mode='lines', name=f'Order {order}'))
 
-    fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11',
-                      xaxis=dict(range=[0, 360]))
+#     fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11',
+#                       xaxis=dict(range=[0, 360]))
+    
+    
+    # Update the layout
+    fig.update_layout(
+        title="Maximum e\'"+ str(order[0])+str(order[1])+ "values as a function of phi",
+        xaxis_title='Phi (degrees)',
+        yaxis_title="e' " + str(order[0])+str(order[1]),
+        xaxis=dict(
+            range=[0, 360],
+            tickfont=dict(
+                size=14,  # Adjust the tick label font size
+            ),
+            title=dict(
+                font=dict(
+                    size=16,  # Adjust the x-axis label font size
+                    color='red'  # Adjust the x-axis label font color
+                )
+            )
+        ),
+        yaxis=dict(
+            title=dict(
+                font=dict(
+                    size=16,  # Adjust the y-axis label font size
+                    color='red'  # Adjust the y-axis label font color
+                )
+            )
+        )
+    )
     fig.show()
 
     return fig
