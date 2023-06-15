@@ -865,4 +865,30 @@ def r2_plot(model,input_datasets,target_datasets,name,model_name,plot_path="plot
 
 
     test_r2.figure.savefig('r2_hardness_'+str(name)+'.png',dpi=1200, bbox_inches='tight')
+    
+################################################################################################################
+
+
+#####################################################################################################################
+# Latex matrix
+# Define the matrix size
+def latex_36(my_tensor):
+    rows = 3
+    cols = 6
+
+    # Create the LaTeX matrix string
+    matrix = r"\begin{pmatrix}"
+
+    # Append the values to the matrix string
+    for i in range(rows):
+        for j in range(cols):
+            matrix += str(my_tensor_visual[i, j])
+            if j < cols - 1:
+                matrix += " & "
+            else:
+                matrix += r" \\"
+
+    # Close the matrix string
+    matrix += r"\end{pmatrix}"  
+    return matrix
 
