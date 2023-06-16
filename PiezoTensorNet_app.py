@@ -42,11 +42,24 @@ if selected_tab == "New piezoelectric design":
     # If a pre-defined formula is selected, add it to the DataFrame
     if selected_predefined_formula:
         df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [selected_predefined_formula]})], ignore_index=True)
+################################################################
 
-# Add input block for "Rapid Piezo-performance design"
 if selected_tab == "Rapid Piezo-performance design":
-    # Add an input box for the custom formula
-    custom_formula = st.text_input('Enter the custom formula')
+    base_material_options = ["BaTiO3", "AlN"]
+    base_material = st.sidebar.selectbox("Base Piezo-material", base_material_options)
+
+    first_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
+    first_dopant = st.sidebar.selectbox("First Dopants", first_dopants_options)
+
+    second_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
+    second_dopant = st.sidebar.selectbox("Second Dopants", second_dopants_options)
+    
+    # Perform actions or display content based on the selected options
+    st.write("Selected Base Piezo-material:", base_material)
+    st.write("Selected First Dopant:", first_dopant)
+    st.write("Selected Second Dopant:", second_dopant)
+    # Additional code for this tab
+
 
     # If a custom formula is entered, add it to the DataFrame
     if custom_formula:
