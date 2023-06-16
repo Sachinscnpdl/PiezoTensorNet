@@ -174,17 +174,15 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 import numpy as np
 import matplotlib.pyplot as plt
 
-def tensor_rotation_optimization(eo, order=[0, 0]):
+def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
     # Define the angles theta and psi
-    phi_vals = np.linspace(0, 2 * np.pi, 50)  # Vary phi from 0 to 2*pi
     theta_vals = np.linspace(0, np.pi, 50)
     psi_vals = np.linspace(0, 2 * np.pi, 50)
 
     # Initialize arrays to store the maximum values
-    max_e11_vals = [[] for _ in range(len(order))]
+    max_e11_vals = []
     max_theta_vals = []
     max_psi_vals = []
-
 
     # Iterate over each phi value
     for phi in phi_vals:
@@ -233,22 +231,24 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
         max_e11 = e_prime_11[max_index]
 
         # Append the maximum values to the respective arrays
-        max_e11_vals[order[0] * 6 + order[1]].append(max_e11)
+        max_e11_vals.append(max_e11)
         max_theta_vals.append(max_theta)
         max_psi_vals.append(max_psi)
 
     # Plot the maximum values for each order as a function of phi
-
-    fig, ax = plt.subplots()
-
-    for i, order in enumerate(orders):
-        ax.plot(np.degrees(phi_vals), np.array(max_e11_vals[i]).flatten(), label=f'Order {order}')
-
-    ax.set_title("Maximum e'_" + str(order[0] + 1) + str(order[1] + 1) + " values as a function of phi")
-    ax.set_xlabel('Phi (degrees)')
-    ax.set_ylabel("e'_" + str(order[0] + 1) + str(order[1] + 1))
-    ax.legend()
-
+    
+    plt.figure(figsize=(6, 4))
+    plt.plot(phi_vals, max_e11_vals, label=f"Order {order[0]}{order[1]}")
+    plt.xlabel('Phi (degrees)', fontsize=20, color='red')  # Increase font size of xlabel
+    plt.ylabel("Maximum e' " + str(order[0]+1) + str(order[1]+1)+r"  $C/m^2$", fontsize=20, color='red')  # Increase font size of ylabel
+    plt.tick_params(axis='both', which='major', labelsize=14)  # Increase font size of tick labels
+    plt.legend(loc='best')
+    
+    # Convert x-ticks to degrees and show only 8 ticks without decimal places
+    xtick_vals = np.linspace(np.degrees(phi_vals[0]), np.degrees(phi_vals[-1]), 7)
+    xtick_vals = [int(x) for x in xtick_vals]
+    plt.xticks(np.radians(xtick_vals), xtick_vals)
     plt.show()
+
 
     return fig
