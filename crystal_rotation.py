@@ -108,10 +108,10 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
             zaxis_title=r"e'"+str(order[0]+1)+str(order[1]+1),
             xaxis=dict(
                 showgrid=False,
-                tickfont=dict(size=14, color='black'),  # Set tick label color to black
-                title_font=dict(size=16, color='red'),  # Set axis label color to black
+                tickfont=dict(size=16, color='black'),  # Set tick label color to black
+                title_font=dict(size=20, color='red'),  # Set axis label color to black
 #                 showline=True,
-                linecolor='black',  # Set axis line color to black
+#                 linecolor='black',  # Set axis line color to black
                 tickangle=0,  # Rotate x-axis tick labels
                 nticks=5,  # Set the maximum number of ticks
                 tick0=0,  # Set the starting tick
@@ -122,7 +122,7 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
                 tickfont=dict(size=14, color='black'),  # Set tick label color to black
                 title_font=dict(size=16, color='red'),  # Set axis label color to black
 #                 showline=True,
-                linecolor='black',  # Set axis line color to black
+#                 linecolor='black',  # Set axis line color to black
                 tickangle=-5,  # Rotate x-axis tick labels
                 nticks=5,  # Set the maximum number of ticks
                 tick0=0,  # Set the starting tick
