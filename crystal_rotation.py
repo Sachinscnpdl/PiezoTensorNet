@@ -186,8 +186,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     max_e11_vals = [[] for _ in range(len(orders))]
     max_theta_vals = []
     max_psi_vals = []
-    orders = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
-              [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5]]
+
 
     # Iterate over each phi value
     for phi in phi_vals:
