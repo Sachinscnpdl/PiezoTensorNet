@@ -174,7 +174,7 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 import numpy as np
 import matplotlib.pyplot as plt
 
-def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
+def tensor_rotation_optimization(eo, order=[0, 0]):
     # Define the angles theta and psi
     theta_vals = np.linspace(0, np.pi, 50)
     psi_vals = np.linspace(0, 2 * np.pi, 50)
