@@ -196,4 +196,4 @@ if crystal_rotations:
     st.plotly_chart(crystal_plot)
     
     rot_optimization = tensor_rotation_optimization(my_tensor, order=[i-1,j-1])
-    st.plotly_chart(rot_optimization)
+    st.pyplot(rot_optimization)
