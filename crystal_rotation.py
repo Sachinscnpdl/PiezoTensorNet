@@ -44,6 +44,7 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 #     phi_vals = 30
     theta_vals = np.linspace(0, np.pi, 40)
     psi_vals = np.linspace(0, 2 * np.pi, 40)
+    
 
     # Initialize array to store the e'11 matrix elements for each combination of psi, theta, and phi
     e_prime_11 = np.zeros((len(psi_vals), len(theta_vals)))
@@ -178,6 +179,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     # Define the angles theta and psi
     theta_vals = np.linspace(0, np.pi, 50)
     psi_vals = np.linspace(0, 2 * np.pi, 50)
+    phi_vals = np.linspace(0, 2 * np.pi, 50)
 
     # Initialize arrays to store the maximum values
     max_e11_vals = []
