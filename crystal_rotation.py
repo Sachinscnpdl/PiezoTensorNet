@@ -174,11 +174,10 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
 import numpy as np
 import matplotlib.pyplot as plt
 
-def tensor_rotation_optimization(eo, order=[0, 0]):
+def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
     # Define the angles theta and psi
     theta_vals = np.linspace(0, np.pi, 50)
     psi_vals = np.linspace(0, 2 * np.pi, 50)
-    phi_vals = np.linspace(0, 2 * np.pi, 50)
 
     # Initialize arrays to store the maximum values
     max_e11_vals = []
@@ -239,16 +238,33 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     # Plot the maximum values for each order as a function of phi
     
     plt.figure(figsize=(6, 4))
-    plt.plot(phi_vals, max_e11_vals, label=f"Order {order[0]}{order[1]}")
+    plt.plot(phi_vals, max_e11_vals,color='blue')
     plt.xlabel('Phi (degrees)', fontsize=20, color='red')  # Increase font size of xlabel
-    plt.ylabel("Maximum e' " + str(order[0]+1) + str(order[1]+1)+r"  $C/m^2$", fontsize=20, color='red')  # Increase font size of ylabel
+    plt.ylabel("e' " + str(order[0]+1) + str(order[1]+1)+r"  $C/m^2$", fontsize=20, color='red')  # Increase font size of ylabel
     plt.tick_params(axis='both', which='major', labelsize=14)  # Increase font size of tick labels
-    plt.legend(loc='best')
     
     # Convert x-ticks to degrees and show only 8 ticks without decimal places
     xtick_vals = np.linspace(np.degrees(phi_vals[0]), np.degrees(phi_vals[-1]), 7)
     xtick_vals = [int(x) for x in xtick_vals]
     plt.xticks(np.radians(xtick_vals), xtick_vals)
+
+    # Annotate the maximum value
+    max_phi_index = np.argmax(max_e11_vals)  # Index of the maximum value
+    max_phi = phi_vals[max_phi_index]  # Corresponding phi value
+    max_e11 = max_e11_vals[max_phi_index]  # Maximum e'11 value
+    
+    
+
+    plt.annotate(f'Max: {max_e11:.2f} @ Angle: {60*max_phi:.2f}°', xy=(max_phi, max_e11),
+            xytext=(0.08, 1.05), textcoords='axes fraction',
+                 fontname = 'serif',
+                 fontsize=12,
+                 color='k',
+                )
+    
+    # Add dashed vertical line from maximum value to y_max
+    plt.axvline(x=max_phi, ymin=0, ymax=max_e11 / plt.ylim()[1], color='gray',alpha=0.25, linestyle='--')
+    plt.axhline(y=max_e11, xmin=0, xmax=max_phi / plt.xlim()[1], color='gray', alpha=0.25, linestyle='--')
     plt.show()
 
 
