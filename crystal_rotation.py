@@ -38,9 +38,7 @@ def tensor_rotation(eo, psi=30, theta=90, phi=150):
     ###########################################################################################################################################3
 def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
     import numpy as np
-    import plotly.graph_objects as go
-    
-#     eo = np.array([[0, 0, 0, 0, 0.5, 0], [0, 0, 0, 0.5, 0, 0], [0.13, 0.13, 0.8, 0, 0, 0]])
+    import plotly.graph_objects as go 
     
     # Define the angles phi, theta, and psi
 #     phi_vals = 30
@@ -183,7 +181,7 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     psi_vals = np.linspace(0, 2 * np.pi, 50)
 
     # Initialize arrays to store the maximum values
-    max_e11_vals = [[] for _ in range(len(orders))]
+    max_e11_vals = [[] for _ in range(len(order))]
     max_theta_vals = []
     max_psi_vals = []
 
