@@ -119,8 +119,8 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
             ),
             yaxis=dict(
                 showgrid=False,
-                tickfont=dict(size=14, color='black'),  # Set tick label color to black
-                title_font=dict(size=16, color='red'),  # Set axis label color to black
+                tickfont=dict(size=16, color='black'),  # Set tick label color to black
+                title_font=dict(size=20, color='red'),  # Set axis label color to black
 #                 showline=True,
 #                 linecolor='black',  # Set axis line color to black
                 tickangle=-5,  # Rotate x-axis tick labels
@@ -130,8 +130,8 @@ def tensor_rotation_plot(eo, phi = 30,order=[0,0]):
             ),
             zaxis=dict(
                 showgrid=False,
-                tickfont=dict(size=14, color='black'),  # Set tick label color to black
-                title_font=dict(size=16, color='red'),  # Set axis label color to black
+                tickfont=dict(size=16, color='black'),  # Set tick label color to black
+                title_font=dict(size=20, color='red'),  # Set axis label color to black
 #                 showline=True,
                 linecolor='black',  # Set axis line color to black
                 tickangle=-0,
