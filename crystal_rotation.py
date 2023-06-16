@@ -252,4 +252,4 @@ def tensor_rotation_optimization(eo, order=[0, 0]):
     plt.show()
 
 
-    return fig
+    return plt
