@@ -43,16 +43,16 @@ if selected_tab == "New piezoelectric design":
     if selected_predefined_formula:
         df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [selected_predefined_formula]})], ignore_index=True)
 ################################################################
+    
+    
+    # Display the selected formulas
+    if not df_selected_formulas.empty:
+        st.write('Selected Formulas:')
+        st.dataframe(df_selected_formulas)
+    
+    df_piezo = df_selected_formulas
 
-
-# Display the selected formulas
-if not df_selected_formulas.empty:
-    st.write('Selected Formulas:')
-    st.dataframe(df_selected_formulas)
-
-df_piezo = df_selected_formulas
-
-if selected_tab == "New piezoelectric design":
+# if selected_tab == "New piezoelectric design":
     cat, subcategories, y_tensor = prediction_model(df_piezo, cat = 'B', point='')
     
     """
