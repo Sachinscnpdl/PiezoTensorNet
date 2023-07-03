@@ -173,9 +173,10 @@ if selected_tab == "New piezoelectric design":
 
 
 if selected_tab == "Rapid Piezo-performance design":
-
-
+    """
+    
     # Welcome to PiezoTensorNet - Piezoelectric performance finetuning!
+    """
     
     base_material_options = ["BaTiO3", "AlN"]
     base_material = st.sidebar.selectbox("Base Piezo-material", base_material_options)
