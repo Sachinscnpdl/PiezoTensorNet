@@ -387,3 +387,33 @@ def tensor_rotation_optimization(eo, phi_vals, order=[0, 0]):
 
     fig.update_layout(title='Maximum e11 values as a function of phi', xaxis_title='Phi (degrees)', yaxis_title='e11')
     fig.show()
+
+
+
+#####################################################################################################################
+# Latex matrix
+# Define the matrix size
+def latex_tensor_visual(my_tensor):
+    
+    my_tensor_visual = np.around(my_tensor, decimals=3)
+    my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
+
+    rows = 3
+    cols = 6
+
+    # Create the LaTeX matrix string
+    matrix = r"\begin{pmatrix}"
+
+    # Append the values to the matrix string
+    for i in range(rows):
+        for j in range(cols):
+            matrix += str(my_tensor_visual[i, j])
+            if j < cols - 1:
+                matrix += " & "
+            else:
+                matrix += r" \\"
+
+    # Close the matrix string
+    matrix += r"\end{pmatrix}"  
+    return matrix
+#########################################################################################################################
