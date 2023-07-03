@@ -62,8 +62,8 @@ if selected_tab == "Rapid Piezo-performance design":
 
 
     # If a custom formula is entered, add it to the DataFrame
-    if custom_formula:
-        df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [custom_formula]})], ignore_index=True)
+    # if custom_formula:
+    #     df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [custom_formula]})], ignore_index=True)
 
 # Display the selected formulas
 if not df_selected_formulas.empty:
