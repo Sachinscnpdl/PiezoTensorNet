@@ -58,7 +58,7 @@ def prediction_model(df_piezo, cat = 'B', point=''):
         predictions = []
 
 #         for model in [model1, model2, model3, model4, model5]:
-        for model in [model1]:
+        for model in [model2, model3]:
             pred = model.predict(df_pca)  # Assuming the models have a predict() method
             print("pred", pred)
             predictions.append(pred)
