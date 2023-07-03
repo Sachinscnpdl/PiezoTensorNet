@@ -15,6 +15,37 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 
+
+#####################################################################################################################
+# Latex matrix
+# Define the matrix size
+def latex_tensor_visual(my_tensor):
+    
+    my_tensor_visual = np.around(my_tensor, decimals=3)
+    my_tensor_visual = np.where(my_tensor_visual == 0.0, '0', my_tensor_visual)
+
+    rows = 3
+    cols = 6
+
+    # Create the LaTeX matrix string
+    matrix = r"\begin{pmatrix}"
+
+    # Append the values to the matrix string
+    for i in range(rows):
+        for j in range(cols):
+            matrix += str(my_tensor_visual[i, j])
+            if j < cols - 1:
+                matrix += " & "
+            else:
+                matrix += r" \\"
+
+    # Close the matrix string
+    matrix += r"\end{pmatrix}"  
+    return matrix
+#########################################################################################################################
+
+
+
 def elements_occurance(df):
     df = df.loc[:, (df != 0).any(axis=0)]
 
