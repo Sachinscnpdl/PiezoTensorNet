@@ -44,26 +44,6 @@ if selected_tab == "New piezoelectric design":
         df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [selected_predefined_formula]})], ignore_index=True)
 ################################################################
 
-if selected_tab == "Rapid Piezo-performance design":
-    base_material_options = ["BaTiO3", "AlN"]
-    base_material = st.sidebar.selectbox("Base Piezo-material", base_material_options)
-
-    first_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
-    first_dopant = st.sidebar.selectbox("First Dopants", first_dopants_options)
-
-    second_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
-    second_dopant = st.sidebar.selectbox("Second Dopants", second_dopants_options)
-    
-    # Perform actions or display content based on the selected options
-    st.write("Selected Base Piezo-material:", base_material)
-    st.write("Selected First Dopant:", first_dopant)
-    st.write("Selected Second Dopant:", second_dopant)
-    # Additional code for this tab
-
-
-    # If a custom formula is entered, add it to the DataFrame
-    # if custom_formula:
-    #     df_selected_formulas = pd.concat([df_selected_formulas, pd.DataFrame({'S.N': [len(df_selected_formulas) + 1], 'formula_pretty': [custom_formula]})], ignore_index=True)
 
 # Display the selected formulas
 if not df_selected_formulas.empty:
@@ -185,3 +165,47 @@ if crystal_rotations:
     
     rot_optimization = tensor_rotation_optimization(my_tensor, order=[i-1,j-1])
     st.pyplot(rot_optimization)
+
+
+####################################################
+###############################################
+
+
+
+if selected_tab == "Rapid Piezo-performance design":
+    base_material_options = ["BaTiO3", "AlN"]
+    base_material = st.sidebar.selectbox("Base Piezo-material", base_material_options)
+
+    first_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
+    first_dopant = st.sidebar.selectbox("First Dopants", first_dopants_options)
+
+    second_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
+    second_dopant = st.sidebar.selectbox("Second Dopants", second_dopants_options)
+    
+    # Perform actions or display content based on the selected options
+    st.write("Selected Base Piezo-material:", base_material)
+    st.write("Selected First Dopant:", first_dopant)
+    st.write("Selected Second Dopant:", second_dopant)
+    # Additional code for this tab
+
+    if second_dopant:
+        # Both element 1 and element 2 are supplied
+        cat = 'B'
+        point = 'hextetramm'
+        order = [2, 0]
+        cat, sub, tensor_eo = two_dopants_ternary(base_composition, first_dopant, second_dopant, cat, point, order)
+        st.write("Results for two dopants:")
+        st.write("Category:", cat)
+        st.write("Subcategory:", sub)
+        st.write("Tensor EO:", tensor_eo)
+    else:
+        # Only element 1 is supplied
+        cat = 'B'
+        point = 'hextetramm'
+        order = [2, 2]
+        tensor_eo, target_1, target_33_1, target_31_1 = single_dopants_new(base_composition, first_dopant, cat, point, order)
+        st.write("Results for single dopant:")
+        st.write("Tensor EO:", tensor_eo)
+        st.write("Target 1:", target_1)
+        st.write("Target 33_1:", target_33_1)
+        st.write("Target 31_1:", target_31_1)
