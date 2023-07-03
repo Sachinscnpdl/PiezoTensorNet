@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 
 # Add the function.py file
 from functions import *
-from prediction_ML import *
+# from prediction_ML import *
 #############################################################################
 # Add a dropdown to select a pre-defined formula
 
