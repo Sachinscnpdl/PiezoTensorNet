@@ -2,7 +2,18 @@
 # coding: utf-8
 
 # In[ ]:
+#Import Libraries
+from pymatgen.core.composition import Composition, Element
+from pymatgen.core.structure import SiteCollection
+from matminer.featurizers.composition.alloy import Miedema, WenAlloys,YangSolidSolution
+from matminer.featurizers.composition import ElementFraction
+from matminer.featurizers.conversions import StrToComposition
+from matminer.utils.data import MixingEnthalpy, DemlData
+from matminer.utils import data_files #for importing "Miedema.csv" present inside package of Matminer library
+from matplotlib.ticker import MultipleLocator # for minor tick lines
+import seaborn as sns
 
+import pandas as pd
 
 def elements_occurance(df):
     df = df.loc[:, (df != 0).any(axis=0)]
