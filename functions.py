@@ -12,7 +12,7 @@ from matminer.utils.data import MixingEnthalpy, DemlData
 from matminer.utils import data_files #for importing "Miedema.csv" present inside package of Matminer library
 from matplotlib.ticker import MultipleLocator # for minor tick lines
 import seaborn as sns
-
+import numpy as np
 import pandas as pd
 
 def elements_occurance(df):
