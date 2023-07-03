@@ -179,7 +179,7 @@ if selected_tab == "Rapid Piezo-performance design":
     """
     
     base_material_options = ["BaTiO3", "AlN"]
-    base_material = st.sidebar.selectbox("Base Piezo-material", base_material_options)
+    base_composition = st.sidebar.selectbox("Base Piezo-material", base_material_options)
 
     first_dopants_options = ["Mo", "Mg", "Ti", "Zr", "Hg"]
     first_dopant = st.sidebar.selectbox("First Dopants", first_dopants_options)
