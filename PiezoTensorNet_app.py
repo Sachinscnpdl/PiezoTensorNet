@@ -188,7 +188,7 @@ if selected_tab == "Rapid Piezo-performance design":
     second_dopant = st.sidebar.selectbox("Second Dopants", second_dopants_options)
     
     # Perform actions or display content based on the selected options
-    st.write("Selected Base Piezo-material:", base_material)
+    st.write("Selected Base Piezo-material:", base_composition)
     st.write("Selected First Dopant:", first_dopant)
     st.write("Selected Second Dopant:", second_dopant)
     # Additional code for this tab
