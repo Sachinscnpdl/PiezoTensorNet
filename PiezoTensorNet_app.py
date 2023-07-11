@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 # ef= ElementFraction()
 # stc = StrToComposition()
 # Header for the Website
-st.header(':blue[Toolkit for Exploratory Design and Discovery of Piezoelectric Materials] ')
+#st.header(':blue[Toolkit for Exploratory Design and Discovery of Piezoelectric Materials] ')
 # Add the function.py file
 from functions import *
 # from prediction_ML import *
