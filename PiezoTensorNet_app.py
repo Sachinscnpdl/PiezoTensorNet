@@ -28,7 +28,8 @@ from functions import *
 # Header for the Website
 #st.header(':blue[Toolkit for Exploratory Design and Discovery of Piezoelectric Materials] ')
 #st.header('Toolkit for Exploratory Design and Discovery of Piezoelectric Materials ')
-st.header('<font color=‘red’> Toolkit for Exploratory Design and Discovery of Piezoelectric Materials </font>, unsafe_allow_html=True) ')
+# Using HTML formatting to add color to the font in st.header
+st.markdown('<h1 style="color:blue;">Toolkit for Exploratory Design and Discovery of Piezoelectric Materials </h1>', unsafe_allow_html=True)
 # Add a dropdown to select a pre-defined formula
 
 # Create two tabs in the sidebar
