@@ -26,7 +26,7 @@ from functions import *
 #############################################################################
 #Header for the website
 # Header for the Website
-st.header(':blue[Toolkit for Exploratory Design and Discovery of Piezoelectric Materials] ')
+#st.header(':blue[Toolkit for Exploratory Design and Discovery of Piezoelectric Materials] ')
 # Add a dropdown to select a pre-defined formula
 
 # Create two tabs in the sidebar
