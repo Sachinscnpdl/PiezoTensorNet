@@ -1507,10 +1507,15 @@ def prediction_model(df_piezo, cat = 'B', point=''):
     pca_1 = pickle.load(open(path+'pca_1.pkl','rb'))
     df_pca =  pca_1.transform(df_std)
 
-    from tensorflow import keras
-    model_cat = keras.models.load_model('model_files/nn_model/classification/model_cat.h5')
-    model_cata = keras.models.load_model('model_files/nn_model/classification/model_cata.h5')
-    model_catb = keras.models.load_model('model_files/nn_model/classification/model_catb.h5')
+    # from tensorflow import keras
+    # model_cat = keras.models.load_model('model_files/nn_model/classification/model_cat.h5')
+    # model_cata = keras.models.load_model('model_files/nn_model/classification/model_cata.h5')
+    # model_catb = keras.models.load_model('model_files/nn_model/classification/model_catb.h5')
+
+    from keras.models import load_model
+    model_cat = load_model('model_files/nn_model/classification/model_cat.h5')
+    model_cata = load_model('model_files/nn_model/classification/model_cata.h5')
+    model_catb = load_model('model_files/nn_model/classification/model_catb.h5')
 
     y_cat = model_cat.predict(df_pca)
     if cat=='NA':
