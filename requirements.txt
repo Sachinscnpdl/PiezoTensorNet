@@ -2,7 +2,6 @@ altair
 pandas
 numpy
 streamlit
-pymatgen
 matminer
 seaborn
 pymatgen==2022.0.8
