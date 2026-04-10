@@ -1,4 +1,4 @@
-import pkg_resources
+#import pkg_resources
 import subprocess
 import sys
 
