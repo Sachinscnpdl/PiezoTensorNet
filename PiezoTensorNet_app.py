@@ -110,7 +110,7 @@ if selected_tab == "New piezoelectric design":
     
     ######################################################################################################
     
-    import subprocess
+    #import subprocess
     
     # Define the path to the file
     file_path = "~/Sachin Research/Piezoelectric_Research/Piezoelectric_codes/Codes_May 1/Piezoelectric Tensors/"
