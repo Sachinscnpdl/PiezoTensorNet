@@ -1,5 +1,4 @@
-#import pkg_resources
-importlib.metadata
+import pkg_resources
 import subprocess
 import sys
 
