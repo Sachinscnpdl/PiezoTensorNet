@@ -1,4 +1,4 @@
-#import pkg_resources
+#import pkg_resources # pkg_resources automatically comes from set up tools
 import subprocess
 import sys
 
@@ -110,7 +110,7 @@ if selected_tab == "New piezoelectric design":
     
     ######################################################################################################
     
-    #import subprocess
+    #import subprocess # already defined on top line
     
     # Define the path to the file
     file_path = "~/Sachin Research/Piezoelectric_Research/Piezoelectric_codes/Codes_May 1/Piezoelectric Tensors/"
